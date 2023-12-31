@@ -1,3 +1,4 @@
+@isTest
 public with sharing class ApexTestdataFactory {
     /**
      * It will populate default value for all the mandatory 
@@ -16,14 +17,9 @@ public with sharing class ApexTestdataFactory {
             } 
             recordsToInsert.add(sObj); 
         }
-        
-        insert recordsToInsert;
         System.debug(LoggingLevel.INFO, 'recordsToInsert '+recordsToInsert);
-        return null;
+        return recordsToInsert;
     }
-    //Map<String, List<String>>
-    //Map<String, Map<String, String>>
-    //
     public static Map<String, ObjectMetadata> getMandatoryFields(List<String> sObjects){
         Schema.DescribeSobjectResult[] results = Schema.describeSObjects(sObjects);
         Map<String, ObjectMetadata> metadataMap = new Map<String, ObjectMetadata>();
@@ -48,11 +44,10 @@ public with sharing class ApexTestdataFactory {
             objMetadata.fieldsWithDataType = fieldsWithDataType;
             metadataMap.put(res.getName(), objMetadata);
         }
-        System.debug(LoggingLevel.INFO, 'metadataMap ------'+metadataMap);
         return metadataMap;
     }
 
-    public static void loadDefaultTestData(String objectName){
+    public static SObject loadDefaultTestData(String objectName){
         //Get the default record json from the custom metadata
         String defaultRecordJson = getDefaultDataFromCM(objectName);
         //Create the object instance using Scheme for a given object
@@ -78,7 +73,7 @@ public with sharing class ApexTestdataFactory {
                 sObj.put(field, sObjMap.get(field));
             }
         }
-        Database.insert(sObj, AccessLevel.User_mode); 
+        return sObj; 
     }
     
     private static String getDefaultDataFromCM(String objectName){
