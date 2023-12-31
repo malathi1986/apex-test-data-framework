@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Account</label>
+    <protected>false</protected>
+    <values>
+        <field>Default_Value__c</field>
+        <value xsi:type="xsd:string">{
+  &quot;Name&quot;: &quot;John Smith Test account&quot;,
+  &quot;Type&quot;: null,
+  &quot;Phone&quot;: null,
+  &quot;Fax&quot;: null,
+  &quot;AccountNumber&quot;: null,
+  &quot;Website&quot;: null,
+  &quot;Sic&quot;: null,
+  &quot;Industry&quot;: null,
+  &quot;AnnualRevenue&quot;: null,
+  &quot;NumberOfEmployees&quot;: null,
+  &quot;Ownership&quot;: null,
+  &quot;TickerSymbol&quot;: null,
+  &quot;Description&quot;: null,
+  &quot;Rating&quot;: null,
+  &quot;Site&quot;: null,
+  &quot;CurrencyIsoCode&quot;: &quot;USD&quot;,
+  &quot;CleanStatus&quot;: &quot;Pending&quot;,
+  &quot;AccountSource&quot;: null,
+  &quot;DunsNumber&quot;: null,
+  &quot;Tradestyle&quot;: null,
+  &quot;NaicsCode&quot;: null,
+  &quot;NaicsDesc&quot;: null,
+  &quot;YearStarted&quot;: null,
+  &quot;SicDesc&quot;: null,
+  &quot;DandbCompanyId&quot;: null,
+  &quot;CustomerPriority__c&quot;: null,
+  &quot;SLA__c&quot;: null,
+  &quot;Active__c&quot;: null,
+  &quot;NumberofLocations__c&quot;: null,
+  &quot;UpsellOpportunity__c&quot;: null,
+  &quot;SLASerialNumber__c&quot;: null,
+  &quot;SLAExpirationDate__c&quot;: null,
+  &quot;Gender__c&quot;: null,
+  &quot;ChildCount__c&quot;: null,
+  &quot;OpportunityOpen__c&quot;: null,
+  &quot;OpportunityWon__c&quot;: null,
+  &quot;OpportunityClose__c&quot;: null,
+  &quot;OpportunityStage__c&quot;: null,
+  &quot;Calculate__c&quot;: null,
+  &quot;accessories__c&quot;: &quot;shocks&quot;,
+  &quot;L_Contact__c&quot;: null,
+  &quot;Match_Billing_Address__c&quot;: false,
+  &quot;Region__c&quot;: null,
+  &quot;Zone__c&quot;: null,
+  &quot;Risk_Approval_Submitted__c&quot;: false,
+  &quot;Number_of_US_contacts__c&quot;: null,
+  &quot;Account_message__c&quot;: null,
+  &quot;Account_Classification__c&quot;: null,
+  &quot;Customer_ID__c&quot;: null,
+  &quot;BusinessType__c&quot;: &quot;Small&quot;,
+  &quot;Opportunity_Amount__c&quot;: null,
+  &quot;CleanStatus__c&quot;: null
+}</value>
+    </values>
+    <values>
+        <field>Object_Name__c</field>
+        <value xsi:type="xsd:string">Account</value>
+    </values>
+</CustomMetadata>
