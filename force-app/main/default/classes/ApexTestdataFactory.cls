@@ -1,4 +1,3 @@
-@isTest
 public with sharing class ApexTestdataFactory {
     /**
      * It will populate default value for all the mandatory 
@@ -79,6 +78,30 @@ public with sharing class ApexTestdataFactory {
                                                           WHERE Object_Name__c=:objectName 
                                                           WITH SECURITY_ENFORCED];    
         return apexTestData.Default_Value__c;
+    }
+
+    public static List<SObject> loadRecordsFromStaticResources(String sObjectName, String resourceName){
+        StaticResource resource = [SELECT Id, 
+                                       Body 
+                                FROM StaticResource 
+                                WHERE Name =:resourceName 
+                                WITH SECURITY_ENFORCED
+                                LIMIT 1];
+        String csvFileBody = resource.Body.toString();
+        String[] filelines = csvFileBody.split('\n');
+        //This will read the header
+        String[] csvColumnHeaders = filelines[0].split(',');
+        List<sObject> sObjectRecords = new List<sObject>();
+        
+        for (Integer i = 1; i < filelines.size(); i++) {
+            String[] csvColumnvalues = filelines[i].split(',');
+            SObject sObj = Schema.getGlobalDescribe().get(sObjectName).newSObject();
+            for (Integer j = 0; j < csvColumnvalues.size(); j++) {
+                sObj.put(csvColumnHeaders[j], csvColumnvalues[j]);
+            }
+            sObjectRecords.add(sObj);
+        }
+        return sObjectRecords;
     }
 
     class ObjectMetadata{
