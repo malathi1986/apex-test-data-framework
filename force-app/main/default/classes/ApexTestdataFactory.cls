@@ -55,17 +55,13 @@ public with sharing class ApexTestdataFactory {
 
         //Map<String, List<Schema.DescribeFieldResult>> mandatoryFields = getMandatoryFields(new List<String>{sObjectName});
         Map<String,Object> sObjMap = (Map<String,Object>)JSON.deserializeUntyped(defaultRecordJson);
-        System.debug(LoggingLevel.INFO, 'sObjMap ------'+sObjMap);
         //sObj =(SObject) sObjMap.get('default');
         Map<String, ObjectMetadata> objectMetadataMap = getMandatoryFields(new List<String>{objectName});
         Map<String,Schema.DisplayType> fieldDataType = objectMetadataMap.get(objectName).fieldsWithDataType;
         
-        for (String field : sObjMap.keySet()) {
-            System.debug(LoggingLevel.INFO, 'Schema.DisplayType '+fieldDataType.get(field));
+        for (String field : sObjMap.keySet()) { 
             Schema.DisplayType type = fieldDataType.get(field);
-            System.debug(LoggingLevel.INFO, 'type '+type);
             if(String.valueOf(type) == String.valueOf(Schema.DisplayType.DATETIME)){
-                System.debug(LoggingLevel.INFO, 'Schema.DisplayType matched '+field);
                 //Converting sting to datetime format
                 Datetime dt = DateTime.parse(String.valueOf(sObjMap.get(field)));
                 sObj.put(field, dt);
@@ -90,12 +86,4 @@ public with sharing class ApexTestdataFactory {
         public List<String> objectMandatoryFields { get; set; }
         public Map<String, Schema.DisplayType> fieldsWithDataType { get; set; }
     }
-
-    class Constants {
-        public String CHECKING_ACCOUNT = 'Checking Account';
-    }
-
-    public enum Season {WINTER, SPRING, SUMMER, FALL}
-    public enum Weekdays {SUNDAY, MONDAY, SUMMER, FALL}
-    
 }
